@@ -2,27 +2,23 @@
 import sys
 from calculator_1 import add, sub, mul, div
 if len(sys.argv) != 4:
-    print("Usage: python calculator.py <a> <operator> <b>")
-    sys.exit(1)
-try:
-    a = int(sys.argv[1])
-    b = int(sys.argv[3])
-except ValueError:
-    print("Error: Invalid input")
+    print("Usage: ./100-my_calculator.py <a> <operator> <b>")
     sys.exit(1)
 
-if sys.argv[2] == "+":
+a = int(sys.argv[1])
+operator = sys.argv[2]
+b = int(sys.argv[3])
+
+if operator == "+":
     result = add(a, b)
-elif sys.argv[2] == "-":
+elif operator == "-":
     result = sub(a, b)
-elif sys.argv[2] == "*":
+elif operator == "*":
     result = mul(a, b)
-elif sys.argv[2] == "/":
+elif operator == "/":
     result = div(a, b)
 else:
-    print('Unknown operator. Available operators: +, -, * and /')
+    print("Unknown operator. Available operators: +, -, * and /")
     sys.exit(1)
 
-
-print("{} {} {} = {}".format(a, sys.argv[2], b, result))
-sys.exit(0)
+print("{} {} {} = {}".format(a, operator, b, result))
