@@ -20,5 +20,5 @@ elif operator == "/":
 else:
     print("Unknown operator. Available operators: +, -, * and /")
     sys.exit(1)
-
-print("{} {} {} = {}".format(a, operator, b, result))
+if __name__ == "__main__":
+    print("{} {} {} = {}".format(a, operator, b, result))
