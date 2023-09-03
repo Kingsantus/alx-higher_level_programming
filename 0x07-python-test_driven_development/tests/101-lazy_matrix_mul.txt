@@ -1,0 +1,24 @@
+========================================
+Tests for ``101-lazy_matrix_mul`` module
+========================================
+
+>>> lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+
+>>> lazy_matrix_mul([[1, 2], [3, 4]], [[5, 6], [7, 8]])
+[[19, 22], [43, 50]]
+
+>>> lazy_matrix_mul([[1, 2, 3], [4, 5, 6]], [[7, 8], [9, 10], [11, 12]])
+[[58, 64], [139, 154]]
+
+>>> lazy_matrix_mul([[1, 2], [3, 4], [5, 6]], [[7, 8, 9], [10, 11, 12]])
+[[27, 30, 33], [61, 68, 75], [95, 106, 117]]
+
+>>> lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+Traceback (most recent call last):
+  ...
+ValueError: m_a and m_b can't be multiplied
+
+>>> lazy_matrix_mul([["f", 5, 6], [4, 5, '8']], [[5, 7, 6], [7, 4, 8]])
+Traceback (most recent call last):
+  ...
+ValueError: m_a and m_b can't be multiplied

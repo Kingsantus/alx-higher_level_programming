@@ -1,0 +1,71 @@
+===================================
+Tests for ``0-add_intteger`` module
+===================================
+
+This module contains one function, ``add_integer()`` which is used to compute 
+addition of two integer provided from the Args. If value passed is a float it will be 
+converted to int and if the value is neither float and int, TypeError is raised
+
+First, import function from module
+::
+>>> add_integer = __import__('0-add_integer').add_integer
+
+Checking for addition of positive integer
+::
+>>> add_integer(2, 3)
+5
+>>> add_integer(5)
+103
+
+Checking for addition of negative and positive integer
+::
+>>> add_integer(-5, 10)
+5
+
+Checking for addition of float and int
+::
+>>> add_integer(5, 10.5)
+15
+
+Checking for addition of two negative number
+::
+>>> add_integer(-6, -9)
+-15
+
+Checking for addition of positive float
+::
+>>> add_integer(4.3, 8.5)
+12
+
+Checking for addition of negative float
+::
+>>> add_integer(-9.3, -3.5)
+-12
+
+Checking for addition of int and str
+::
+>>> add_integer("2", 3)
+Traceback (most recent call last):
+	...
+TypeError: a must be an integer
+
+Checking for addition of  str
+::
+>>> add_integer("2", "3")
+Traceback (most recent call last):
+        ...
+TypeError: a must be an integer
+
+Checking for addition of string, and list
+::
+>>> add_integer("hello", [5, 9])
+Traceback (most recent call last):
+	...
+TypeError: a must be an integer
+
+Checking for a addition of None, and int
+::
+>>> add_integer(None, 6)
+Traceback (most recent call last):
+	...
+TypeError: a must be an integer

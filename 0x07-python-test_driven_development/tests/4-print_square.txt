@@ -1,0 +1,51 @@
+===================================
+Tests for ``4-print_square`` module
+===================================
+
+Test case 1: import function from module
+>>> print_square = __import__('4-print_square').print_square
+
+Test case 2: multipy by 0
+>>> print_square(0)
+
+Test case 3: multipy by 1
+>>> print_square(1)
+#
+
+Test case 4:
+>>> print_square(3)
+###
+###
+###
+
+Test case 5:
+>>> print_square(5)
+#####
+#####
+#####
+#####
+#####
+
+Test 6: multipy by float
+>>> print_square(3.5)
+Traceback (most recent call last):
+    ...
+TypeError: size must be an integer
+
+Test case 7: multipy by negative integer
+>>> print_square(-1)
+Traceback (most recent call last):
+    ...
+ValueError: size must be >= 0
+
+Test case 8: multipy by negative float
+>>> print_square(-0.9)
+Traceback (most recent call last):
+    ...
+TypeError: size must be an integer
+
+Test case 9: multipy by invalid
+>>> print_square("invalid")
+Traceback (most recent call last):
+    ...
+TypeError: size must be an integer
