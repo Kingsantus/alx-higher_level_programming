@@ -1,0 +1,7 @@
+#!/usr/bin/python3
+"""3-to_json_string module"""
+import json
+
+def to_json_string(my_obj):
+    """to_json_string return string in json format"""
+    return json.dumps(my_obj)
