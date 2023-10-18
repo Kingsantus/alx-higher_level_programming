@@ -1,6 +1,6 @@
 -- This script lists all records in a table that can be found in another table
 
-SELECT id, name
+SELECT *
 FROM cities
 WHERE state_id = (
 	SELECT id
