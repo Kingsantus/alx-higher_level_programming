@@ -1,3 +1,8 @@
 #!/bin/bash
 # this script that takes in a URL, sends a request to that URL and gets a response (size in bytes)
-response=$(curl -s -o /dev/null/ -w "%{size_download}" "$1"); echo $response
+if [ -z "$1" ]; then
+    echo "Usage: $0 <URL>"
+    exit 1
+fi
+url=$1
+curl -s "$url" | wc -c
