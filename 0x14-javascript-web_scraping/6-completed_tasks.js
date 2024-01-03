@@ -5,25 +5,19 @@ const request = require('request');
 
 const url = process.argv[2];
 
-request.get(url, (err, response, body) => {
-    if (err) {
-      console.log(err);
-    } else {
-      const tasksData = JSON.parse(body);
+request(url, (err, resp, body) => {
+  if (err) { console.log(err); }
 
-      if (tasksData.length > 0) {
-        const completedTasks = tasksData.filter(task => task.completed);
-
-        const completedTasksByUser = {};
-        completedTasks.forEach(task => {
-          if (completedTasksByUser[task.userId]) {
-            completedTasksByUser[task.userId]++;
-          } else {
-            completedTasksByUser[task.userId] = 1;
-          }
-        });
-
-	    console.log(JSON.stringify(completedTasksByUser, null, 2));
+  const completed = {};
+  const jsonBody = JSON.parse(body);
+  for (const task of jsonBody) {
+    if (task.completed) {
+      if (completed[task.userId]) {
+        completed[task.userId]++;
+      } else {
+        completed[task.userId] = 1;
       }
     }
-  });
+  }
+  console.log(completed);
+});
