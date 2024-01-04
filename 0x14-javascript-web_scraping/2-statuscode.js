@@ -12,4 +12,4 @@ request.get(url, (err, response) => {
     } else {
         console.log('code:', response.statusCode);
     }
-})
+});

@@ -3,20 +3,18 @@
 
 const request = require('request');
 
-const apiUrl = process.argv[2];
+const url = process.argv[2];
 
-request.get(apiUrl, (err, response, body) => {
-  if (err) {
-    console.error(err);
-  } else {
-    const filmsData = JSON.parse(body);
-
-    if (filmsData.results && filmsData.results.length > 0) {
-      const moviesWithWedgeAntilles = filmsData.results.filter(movie =>
-        movie.characters.includes('https://swapi-api.alx-tools.com/api/people/18/')
-      );
-
-      console.log(moviesWithWedgeAntilles.length);
+request(url, (error, response, body) => {
+  if (error) { console.log(error); }
+  const jsonBody = JSON.parse(body);
+  let wedgeCount = 0;
+  for (const result of jsonBody.results) {
+    for (const charURL of result.characters) {
+      if (charURL.includes(18)) {
+        wedgeCount++;
+      }
     }
   }
+  console.log(wedgeCount);
 });

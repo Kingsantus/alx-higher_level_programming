@@ -15,6 +15,6 @@ request.get(url, (err, response, body) => {
             if (writeerr) {
                 console.log(writeerr);
             }
-        })
+        });
     }
-})
+});
