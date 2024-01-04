@@ -9,6 +9,6 @@ fs.readFile(filepath, 'UTF-8', (err, content) => {
 	  console.log(err);
 	}
 else {
-  	console.log(content.toString());
+  	console.log(content);
 }
 });
